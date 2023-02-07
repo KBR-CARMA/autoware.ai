@@ -1,4 +1,4 @@
-FROM usdotfhwastol/carma-base:carma-system-4.2.0 AS base_image
+FROM usdotfhwastol/carma-base:c1tenth-develop AS base_image
 
 FROM base_image AS build
 
@@ -23,7 +23,7 @@ LABEL org.label-schema.description="Binary applications and libraries from autow
 LABEL org.label-schema.vendor="Leidos"
 LABEL org.label-schema.version=${VERSION}
 LABEL org.label-schema.url="https://highways.dot.gov/research/research-programs/CARMA"
-LABEL org.label-schema.vcs-url="https://github.com/usdot-fhwa-stol/autoware.ai"
+LABEL org.label-schema.vcs-url="https://github.com/KBR-CARMA/autoware.ai"
 LABEL org.label-schema.vcs-ref=${VCS_REF}
 LABEL org.label-schema.build-date=${BUILD_DATE}
 
