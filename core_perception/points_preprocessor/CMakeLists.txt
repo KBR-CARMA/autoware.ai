@@ -74,12 +74,13 @@ add_executable(ring_ground_filter
 )
 
 target_include_directories(ring_ground_filter PRIVATE
+  ${OpenCV_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
 )
 
 target_link_libraries(ring_ground_filter
   ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
+  ${OpenCV_LIBS}
   ${PCL_LIBRARIES}
   ${Qt5Core_LIBRARIES}
 )
@@ -104,7 +105,7 @@ target_include_directories(ray_ground_filter_lib PRIVATE
 
 target_link_libraries(ray_ground_filter_lib
   ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
+  ${OpenCV_LIBS}
   ${Qt5Core_LIBRARIES}
 )
 
