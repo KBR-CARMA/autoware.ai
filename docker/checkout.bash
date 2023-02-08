@@ -34,15 +34,20 @@ done
 
 cd ${dir}/autoware.ai
 
-if [[ "$BRANCH" = "develop" ]]; then
-      git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-msgs.git --branch $BRANCH
-      git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-utils.git --branch $BRANCH
-      git clone --depth=1 https://github.com/usdot-fhwa-stol/autoware.auto.git --branch $BRANCH
-else
-      git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-msgs.git --branch carma-system-4.2.0
-      git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-utils.git --branch carma-system-4.2.0
-      git clone --depth=1 https://github.com/usdot-fhwa-stol/autoware.auto.git --branch carma-system-4.2.0
-fi
+# Force the version we want.
+git clone --depth=1 https://github.com/KBR-CARMA/carma-msgs.git --branch c1tenth-develop
+git clone --depth=1 https://github.com/KBR-CARMA/carma-utils.git --branch c1tenth-develop
+git clone --depth=1 https://github.com/KBR-CARMA/autoware.auto.git --branch c1tenth-develop
+
+# if [[ "$BRANCH" = "develop" ]]; then
+#       git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-msgs.git --branch $BRANCH
+#       git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-utils.git --branch $BRANCH
+#       git clone --depth=1 https://github.com/usdot-fhwa-stol/autoware.auto.git --branch $BRANCH
+# else
+#       git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-msgs.git --branch carma-system-4.2.0
+#       git clone --depth=1 https://github.com/usdot-fhwa-stol/carma-utils.git --branch carma-system-4.2.0
+#       git clone --depth=1 https://github.com/usdot-fhwa-stol/autoware.auto.git --branch carma-system-4.2.0
+# fi
 
 # Required to build pacmod_msgs
 git clone https://github.com/astuff/astuff_sensor_msgs.git ${dir}/src/astuff_sensor_msgs --branch 3.0.1
