@@ -79,6 +79,7 @@ target_include_directories(ring_ground_filter PRIVATE
 
 target_link_libraries(ring_ground_filter
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
   ${PCL_LIBRARIES}
   ${Qt5Core_LIBRARIES}
 )

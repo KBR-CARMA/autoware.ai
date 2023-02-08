@@ -17,17 +17,21 @@ if(_python_version VERSION_EQUAL 3 AND CMAKE_VERSION VERSION_GREATER 3.15)
 endif()
 
 # this only works with a recent cmake/boost combination
-if(CMAKE_VERSION VERSION_GREATER 3.11)
-    find_package(Boost COMPONENTS python${_python_version} numpy${_python_version})
-    # ...unless we are dealing with boost 1.70 and above where we can only hope this finds the right version
-    if(NOT Boost_PYTHON${_python_version}_FOUND)
-        set(Boost_PYTHON_VERSION ${_python_version})
-        find_package(Boost COMPONENTS python numpy)
-        set(Boost_PYTHON${_python_version}_FOUND ${Boost_PYTHON_FOUND})
-        set(Boost_PYTHON${_python_version}_LIBRARY ${Boost_PYTHON_LIBRARY})
-        set(Boost_NUMPY${_python_version}_LIBRARY ${Boost_NUMPY_LIBRARY})
-    endif()
-endif()
+# if(CMAKE_VERSION VERSION_GREATER 3.11)
+#     find_package(Boost COMPONENTS python${_python_version} numpy${_python_version})
+#     # ...unless we are dealing with boost 1.70 and above where we can only hope this finds the right version
+#     if(NOT Boost_PYTHON${_python_version}_FOUND)
+#         set(Boost_PYTHON_VERSION ${_python_version})
+#         find_package(Boost COMPONENTS python numpy)
+#         set(Boost_PYTHON${_python_version}_FOUND ${Boost_PYTHON_FOUND})
+#         set(Boost_PYTHON${_python_version}_LIBRARY ${Boost_PYTHON_LIBRARY})
+#         set(Boost_NUMPY${_python_version}_LIBRARY ${Boost_NUMPY_LIBRARY})
+#     endif()
+# endif()
+find_package(Boost COMPONENTS python numpy)
+set(Boost_PYTHON${_python_version}_FOUND ${Boost_PYTHON_FOUND})
+set(Boost_PYTHON${_python_version}_LIBRARY ${Boost_PYTHON_LIBRARY})
+set(Boost_NUMPY${_python_version}_LIBRARY ${Boost_NUMPY_LIBRARY})
 
 if(NOT (Boost_PYTHON${_python_version}_FOUND OR Boost_python_FOUND))
     # on older cmake versions, "python" finds python2, otherwise python3
